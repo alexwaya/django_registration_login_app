@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'users',
+
+    'social_django',
 ]
 
 LOGIN_REDIRECT_URL = '/'
