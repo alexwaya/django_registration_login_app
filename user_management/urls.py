@@ -22,12 +22,16 @@ from django.urls import re_path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from users.views import ResetPasswordView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
 
     #url(r'^oauth/', include('social_django.urls', namespace='social')),
     re_path(r'^oauth/', include('social_django.urls', namespace='social')),
+
+    path('password-reset/', ResetPasswordView.as_view(), name='password_reset'),
 
 ]
 
