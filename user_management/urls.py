@@ -22,9 +22,11 @@ from django.urls import re_path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users.views import ResetPasswordView
+from users.views import ResetPasswordView, ChangePasswordView
+
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import views as auth_views
+ 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,6 +44,8 @@ urlpatterns = [
     path('password-reset-complete/',
          auth_views.PasswordResetCompleteView.as_view(template_name='registration/passwords/password_reset_complete.html'),
          name='password_reset_complete'),
+
+    path('password-change/', ChangePasswordView.as_view(), name='password_change'),
 
 ]
 
