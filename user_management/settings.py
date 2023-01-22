@@ -1,12 +1,12 @@
 import os
 from pathlib import Path
 
-# from dotenv import load_dotenv
-# load_dotenv()
-
 from dotenv import load_dotenv
-dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+load_dotenv()
+
+# from dotenv import load_dotenv
+# dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+# load_dotenv(dotenv_path)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -146,8 +146,12 @@ AUTHENTICATION_BACKENDS = (
 
 
 # social auth configs for github
-SOCIAL_AUTH_GITHUB_KEY = '4d1fa138b5f67f671a42'
-SOCIAL_AUTH_GITHUB_SECRET = '6f86fa561750c4bbf49871d74eab20b8368ff5c8'
+SOCIAL_AUTH_GITHUB_KEY = str(os.getenv('GITHUB_KEY'))
+SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv('GITHUB_SECRET'))
+
+# social auth configs for google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = str(os.getenv('GOOGLE_KEY'))
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = str(os.getenv('GOOGLE_SECRET'))
 
 
 
